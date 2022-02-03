@@ -11,12 +11,12 @@ const cookieParser = require('cookie-parser')
 const FRONTEND_URL =
   process.env.NODE_ENV !== 'production'
     ? 'http://localhost:3000'
-    : 'https://musicking.herokuapp.com'
+    : 'https://musicamalaysia.herokuapp.com'
 
 const REDIRECT_URI =
   process.env.NODE_ENV !== 'production'
     ? 'http://localhost:8888/callback'
-    : 'https://musicking.herokuapp.com/callback'
+    : 'https://musicamalaysia.herokuapp.com/callback'
 
 const CLIENT_ID =
   process.env.NODE_ENV === 'production'
@@ -164,13 +164,9 @@ if (process.env.NODE_ENV === 'production') {
     res.sendfile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
   })
 } else {
-//  app.use(express.static(path.join(__dirname, './public')))
-//  app.get('*', (req, res) => {
-//    res.sendFile(path.join(__dirname, './public/index.html'))
-//  })
-  app.use(express.static('./build'))
+  app.use(express.static(path.join(__dirname, '/frontend/public')))
   app.get('*', (req, res) => {
-    res.sendfile(path.resolve(__dirname, './public/index.html'))
+    res.sendFile(path.join(__dirname, './frontend/public/index.html'))
   })
 }
 

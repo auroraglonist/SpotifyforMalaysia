@@ -75,7 +75,7 @@ function Home({ history }) {
   const LOGIN_URI =
     process.env.NODE_ENV !== 'production'
       ? 'http://localhost:8888/login'
-      : 'https://musicking.herokuapp.com/login'
+      : 'https://musicamalaysia.herokuapp.com/login'
 
   return (
     <Container className="gradDynamic">
